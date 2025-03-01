@@ -46,6 +46,7 @@ namespace ImageTrimmingTool.App
         public int? T { get; set; }
         public int? B { get; set; }
 
+        public string P { get; set; }
 
         /// <summary>
         /// css padding 風の指定。
@@ -114,7 +115,8 @@ namespace ImageTrimmingTool.App
 
         private int[] CompilePadding()
         {
-            string padding = this.Padding ?? "0 0 0 0";
+            // p, padding ともに指定がなければ、デフォルト設定として "0 0 0 0" を使用する。
+            string padding = this.P ?? this.Padding ?? "0 0 0 0";
 
             var token = padding
                     .split( " " )
